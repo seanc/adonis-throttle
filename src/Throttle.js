@@ -78,7 +78,6 @@ class Throttle {
      */
     async count() {
         let count = await this.store.get(this.key)
-        console.log(count)
         if (typeof count === 'undefined') {
             return 0
         }

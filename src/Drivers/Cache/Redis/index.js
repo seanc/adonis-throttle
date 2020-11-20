@@ -53,10 +53,7 @@ class Redis extends Cache {
    * @return {Mixed}
    */
   async get(key) {
-    console.log(this.config.keyPrefix + key)
-    // return this.redis.get(key)
     let result = await this.redis.get(key)
-    console.log('result', result)
     return result
   }
 
@@ -78,7 +75,6 @@ class Redis extends Cache {
    * @return {Cache}
    */
   increment(key) {
-    console.log('test')
     this.redis.incr(key)
     return this
   }
@@ -91,7 +87,6 @@ class Redis extends Cache {
    * @return {Cache}
    */
   async incrementExpiration(key, seconds) {
-    console.log('increment', key, typeof seconds)
     this.redis.expire(key, seconds)
     return this
   }
